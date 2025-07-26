@@ -1,45 +1,40 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import '../App.css';
+import matchaImg from '../assets/latte.jpg'
+import { Link } from 'react-router-dom';
 
 function Home() {
-    const [listOfTasks, setListOfTasks] = useState([]);
-
-    const toggleTask = (index) => {
-        const updatedTasks = [...listOfTasks];
-        updatedTasks[index].completed = !updatedTasks[index].completed;
-        setListOfTasks(updatedTasks);
-    };
-
-    useEffect(() => {
-        axios.get("http://localhost:8080/tasks")
-            .then((response) => {
-                // Add a 'completed' field to each task when fetching
-                const tasksWithCompletedFlag = response.data.map(task => ({
-                    ...task,
-                    completed: false,
-                }));
-                setListOfTasks(tasksWithCompletedFlag);
-            })
-            .catch((error) => {
-                console.error("Error fetching tasks:", error);
-            });
-    }, []);
 
     return (
         <div className="App">
-            {listOfTasks.map((value, key) => (
-                <div
-                    className={`task ${value.completed ? 'completed' : ''}`}
-                    key={key}
-                    onClick={() => toggleTask(key)}
-                >
-                    <div className="taskName">{value.task}</div>
-                    <div className="taskText">{value.taskText}</div>
-                    <div className="dueDate">{value.dueDate}</div>
+            <div className="banner">
+                <div className="navbar">
+                    <h1 id="store-name">the matcha room</h1>
+                        <ul className="nav-links">
+                            <li><a href="/">home</a></li>
+                            <li><a href="/menu">menu</a></li>
+                            <li><a href="/about">about</a></li>
+                            <li><a href="/contact">contact</a></li>
+                        </ul>
                 </div>
-            ))}
+            </div>
+            <div className="matcha-wrapper">
+                <div className="order-box">
+                    <h2 id="order">Order for Pick Up Today</h2>
+                    <p>Now offering pickup on both East and West campus!</p>
+                    <Link to="/order-form">
+                        <button id="order-btn">Order Now</button>
+                    </Link>
+                </div>
+                <img src={matchaImg} alt="Matcha" className="responsive-img" />
+            </div>
+            
+            <div className="favorites">
+                <h2 id="popular-txt">Our Most Popular</h2>
+            </div>
         </div>
+        
     );
 }
 

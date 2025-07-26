@@ -1,9 +1,10 @@
 import React from "react";
 import {Formik, Form, Field, ErrorMessage} from 'formik'
-import './CreateTask.css';
+import './OrderForm.css';
 import axios from "axios"
 import * as Yup from 'yup';
-function CreateTask() {
+
+function OrderForm() {
     const now = new Date();
     const dayOfWeek = now.getDay();
     const dayOfMonth = now.getDay();
@@ -40,7 +41,6 @@ function CreateTask() {
             <p id="month" className="date">{monthNames[month]}</p>
         </div>
         <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
-
             <Form>
                 <label>Add a task:</label>
                 <ErrorMessage name="taskText" component="span" className="errorMessage"/>
@@ -54,4 +54,5 @@ function CreateTask() {
         </Formik>
     </div>
 }
-export default CreateTask; 
+
+export default OrderForm; 
