@@ -4,32 +4,37 @@ body{
   background-color: #FFFFFF;
   padding: 20px
 }
+
 .navbar {
   display: flex;
-  justify-content: center; /* Center the nav-links */
+  justify-content: space-between;
   align-items: center;
+  padding: 0 30px;
   height: 70px;
-  position: relative;
-  border-bottom: 1px solid #ccc; /* Optional */
-  background-color: white;       /* Optional */
+  background-color: white;
 }
 
-/* Top left: absolutely positioned */
+/* Store name stays left and scales */
 #store-name {
-  position: absolute;
-  left: 30px;
   font-family: 'Montserrat', sans-serif;
-  font-size: 24px;
+  font-size: 2rem;
   font-weight: bold;
+  margin: 0;
 }
 
-/* Centered nav links */
+/* Nav links centered with space between */
 .nav-links {
   display: flex;
-  gap: 32px;
+  justify-content: center;
+  gap: 40px;
+  list-style: none;
   font-family: 'Montserrat', sans-serif;
-  font-size: 16px;
+  font-size: 1rem;
+  margin: 0;
+  padding: 0;
 }
+
+
 
 ul {
   list-style-type: none;
@@ -52,7 +57,7 @@ a:visited {
 }
 .responsive-img {
   width: 100%;
-  max-width: 1004px;
+  max-width: 800px;
   height: auto;
   border-radius: 20px;
   display: inline-block;
@@ -102,4 +107,33 @@ a:visited {
   letter-spacing: -0.7px;
   font-weight: bold;
   text-align: center;
+}
+
+.popImgs {
+  display: flex;
+  justify-content: center;
+  gap: 100px; /* space between image blocks */
+  flex-wrap: wrap; /* allows wrapping on small screens */
+}
+
+.pop-img-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.pop-img {
+  max-width: 250px;
+  width: 100%;
+  height: auto;
+  border-radius: 10px; /* optional styling */
+}
+
+.caption {
+  margin-top: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
 }
